@@ -48,6 +48,9 @@ def main():
     timestart = pygame.time.get_ticks()
     pygame.mixer.music.play(-1, 0.0)
     num_arrows = 100
+    # for fps control
+    FPS = 30
+    clock = pygame.time.Clock()
 
     running = 1
     exitcode = 0
@@ -185,6 +188,8 @@ def main():
             accuracy=round(acc[0]*1.0/acc[1]*100,2)
         else:
             accuracy=0
+        # limit the Loop to the FPS
+        clock.tick(FPS)
     # 11 - Win/lose display        
     pygame.font.init()
     font = pygame.font.Font(None, 24)
